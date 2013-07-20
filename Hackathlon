@@ -1,0 +1,55 @@
+#include<fstream.h>
+#include<iostream.h>
+#include<string.h>
+#include<conio.h>
+#include<stdio.h>
+class books
+{ public:
+  char name[20],author[30],publisher[30];
+  int bno,isd; char genre[3];
+   float price;
+  }data,op;
+
+  void main()
+  {cout<<"WELCOME TO THE LIBRARY";
+  cout<<"SELECT THE OPTION YOU WANT TO USE:-"
+  <<endl<<"(1)INSERT BOOK INTO DATABASE"<<endl
+   <<"(2)DELETE BOOK FROM DATABASE"<<endl
+  <<"(3)ISSUE BOOK TO MEMBER"<<endl
+  <<"(4)ADD A MEMBER"<<endl
+  <<"(5)DELETE A MEMBER"<<endl
+   <<"(6)MODIFY MEMEBER DETAILS(FOR RETURN OF BOOK  SELECT THIS OPTION)"<<endl;
+int x;
+cin>>x;
+clrscr();
+ void func();
+ func();}
+
+
+
+void func()
+{cout<<"please enter the data:-";
+cout<<"insert name";
+gets(data.name);
+cout<<"insert genre"<<endl;
+cout<<"genre menu:-";
+cout<<"(1)physics"<<endl;
+ cout<<"(2)chemistry-chy"<<endl;
+gets(data.genre);
+cout<<"insert author name";
+gets(data.author);
+cout<<"insert publisher";
+gets(data.publisher);
+cout<<"insert price";
+ cin>>data.price;
+cout<<"insert book number";
+cin>>data.bno;
+
+fstream fil;
+fil.open("library.txt",ios::in|ios::out|ios::app);
+fil.write((char*)&data,sizeof(data));
+ fil.seekg(0);
+fil.read((char*)&op,sizeof(op));
+cout<<op.author;
+fil.close();
+};
